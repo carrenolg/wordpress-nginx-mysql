@@ -1,0 +1,42 @@
+version: '3.3'
+
+services:
+  wordpress:
+    image: wordpress:php7.3-fpm
+    container_name: wordpress
+    volumes:
+      - ./wordpress:/var/www/html
+    environment:
+      - WORDPRESS_DB_NAME=wordpress
+      - WORDPRESS_TABLE_PREFIX=wp_
+      - WORDPRESS_DB_HOST=mysql
+      - WORDPRESS_DB_USER=root
+      - WORDPRESS_DB_PASSWORD=1q2w3e4r
+    restart: always
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mariadb:latest
+    container_name: mysql
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=1q2w3e4r
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=1q2w3e4r
+      - MYSQL_DATABASE=wordpress
+    restart: always
+  
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - '8000:80'
+    volumes:
+      - ${NGINX_CONF_DIR:-./nginx}:/etc/nginx/conf.d
+      - ${NGINX_LOG_DIR:-./logs/nginx}:/var/log/nginx
+      - ${WORDPRESS_DATA_DIR:-./wordpress}:/var/www/html
+    depends_on:
+      - wordpress
+    restart: always
