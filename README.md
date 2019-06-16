@@ -1,7 +1,7 @@
 # wordpress-nginx-mysql
 Deployment App WorPress using Nginx web server and Mysql data base
 
-1. Download wordpress files run following command into the wordpress folder
+1. Download wordpress files run following command in the root directory project
 ```
 git clone git clone https://github.com/carrenolg/wordpress-nginx-mysql.git 
 ```
