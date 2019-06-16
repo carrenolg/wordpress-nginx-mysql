@@ -6,7 +6,7 @@ Deployment App WorPress using Nginx web server and Mysql data base
 git clone https://github.com/carrenolg/wordpress-nginx-mysql.git 
 ```
 
-2. run docker-compose in the root directory project run: 
+2. run docker-compose in the root directory project: 
 ```
 $ docker-compose up -d
 ```
