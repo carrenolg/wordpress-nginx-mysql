@@ -1,9 +1,14 @@
 # wordpress-nginx-mysql
 Deployment App WorPress using Nginx web server and Mysql data base
 
-1. Download wordpress files run following command in the root directory project
+1. Download the project in your local machine
 ```
 git clone https://github.com/carrenolg/wordpress-nginx-mysql.git 
+```
+
+1. Download wordpress files run following command in the root directory project
+```
+git clone https://github.com/WordPress/WordPress.git
 ```
 
 2. run docker-compose in the root directory project: 
